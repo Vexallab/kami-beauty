@@ -67,11 +67,13 @@
     const defaultHint = hint ? hint.textContent : "";
     fileInput.addEventListener("change", () => {
       const file = fileInput.files[0];
-      if (!hint) return;
       if (file && file.size > 5 * 1024 * 1024) {
-        hint.textContent = "Файл больше 5 МБ — пришлите фото поменьше или отправьте его нам в WhatsApp/Telegram отдельно.";
-        hint.classList.add("is-warning");
-      } else {
+        fileInput.value = "";
+        if (hint) {
+          hint.textContent = "Файл больше 5 МБ — пришлите фото поменьше или отправьте его нам в WhatsApp/Telegram отдельно.";
+          hint.classList.add("is-warning");
+        }
+      } else if (hint) {
         hint.textContent = defaultHint;
         hint.classList.remove("is-warning");
       }
@@ -84,32 +86,11 @@
     const success = document.querySelector("[data-form-success]");
     const error = document.querySelector("[data-form-error]");
     const submitBtn = form.querySelector("button[type=submit]");
-    const urlField = form.querySelector("[data-form-url]");
-    const nextField = form.querySelector("[data-form-next]");
-    if (urlField) urlField.value = window.location.href;
-    if (nextField) {
-      nextField.value = `${window.location.origin}${window.location.pathname}?sent=1#booking`;
-    }
 
-    // Файл — только напрямую
     form.addEventListener("submit", async (e) => {
-      if (!form.reportValidity()) {
-        e.preventDefault();
-        return;
-      }
-
-      const referenceInput = form.querySelector("[data-file-input]");
-      const hasFile = referenceInput && referenceInput.files && referenceInput.files.length > 0;
-      if (hasFile) {
-        if (submitBtn) {
-          submitBtn.disabled = true;
-          submitBtn.classList.add("is-loading");
-        }
-        form.action = form.action.replace("/ajax/", "/");
-        return; // нативная отправка
-      }
-
       e.preventDefault();
+      if (!form.reportValidity()) return;
+
       if (error) error.classList.remove("is-visible");
       if (submitBtn) {
         submitBtn.disabled = true;
@@ -119,10 +100,10 @@
       try {
         const response = await fetch(form.action, {
           method: "POST",
-          headers: { Accept: "application/json" },
           body: new FormData(form),
         });
-        if (!response.ok) throw new Error("FormSubmit request failed");
+        const data = await response.json().catch(() => null);
+        if (!response.ok || !data || !data.ok) throw new Error("submit_failed");
 
         form.reset();
         if (success) success.classList.add("is-visible");
@@ -135,12 +116,6 @@
         }
       }
     });
-
-    // Возврат после отправки
-    if (new URLSearchParams(window.location.search).get("sent") === "1") {
-      if (success) success.classList.add("is-visible");
-      window.history.replaceState({}, "", window.location.pathname + window.location.hash);
-    }
   }
 
   /* Год в футере */

@@ -1,6 +1,19 @@
 <!doctype html>
 <html lang="ru">
 <head>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=110938810', 'ym');
+
+    ym(110938810, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/110938810" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Контакты и запись — Kami Beauty</title>
@@ -235,28 +248,23 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:600;margin:0;color:var(-
             <h2 style="font-size:24px;margin-bottom:8px;">Онлайн-запись</h2>
             <p style="color:var(--ink-soft);font-size:14.5px;margin-bottom:26px;">Заполните форму — администратор перезвонит для подтверждения времени.</p>
 
-            <form data-contact-form novalidate action="https://formsubmit.co/ajax/iprokhorov08@gmail.com" method="POST" enctype="multipart/form-data">
-              <input type="hidden" name="_subject" value="Новая запись — сайт Kami Beauty">
-              <input type="hidden" name="_captcha" value="false">
-              <input type="hidden" name="_template" value="table">
-              <input type="hidden" name="_url" value="" data-form-url>
-              <input type="hidden" name="_next" value="" data-form-next>
+            <form data-contact-form action="/api/submit-form" method="POST" enctype="multipart/form-data">
               <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
               <div class="form-cols">
                 <div class="form-row">
                   <label for="name">Имя</label>
-                  <input type="text" id="name" name="Имя" placeholder="Как к вам обращаться" required>
+                  <input type="text" id="name" name="name" placeholder="Как к вам обращаться" required>
                 </div>
                 <div class="form-row">
                   <label for="phone">Телефон</label>
-                  <input type="tel" id="phone" name="Телефон" placeholder="+7 (___) ___-__-__" inputmode="tel" maxlength="18" required>
+                  <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" inputmode="tel" maxlength="18" required>
                 </div>
               </div>
 
               <div class="form-cols">
                 <div class="form-row">
                   <label for="service">Услуга</label>
-                  <select id="service" name="Услуга" required>
+                  <select id="service" name="service" required>
                     <option value="" disabled selected>Выберите услугу</option>
                     <option>Маникюр</option>
                     <option>Наращивание ногтей</option>
@@ -267,13 +275,13 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:600;margin:0;color:var(-
                 </div>
                 <div class="form-row">
                   <label for="date">Желаемая дата</label>
-                  <input type="date" id="date" name="Желаемая дата">
+                  <input type="date" id="date" name="date">
                 </div>
               </div>
 
               <div class="form-row">
                 <label for="comment">Комментарий</label>
-                <textarea id="comment" name="Комментарий" rows="3" placeholder="Пожелания по мастеру, форме, дизайну"></textarea>
+                <textarea id="comment" name="comment" rows="3" placeholder="Пожелания по мастеру, форме, дизайну"></textarea>
               </div>
 
               <div class="form-row">
