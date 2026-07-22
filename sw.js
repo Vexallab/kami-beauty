@@ -1,6 +1,6 @@
 // Service Worker сайта
 
-const CACHE_NAME = "kami-beauty-v6";
+const CACHE_NAME = "kami-beauty-v7";
 
 const PRECACHE_URLS = [
   "index.html",
@@ -10,6 +10,10 @@ const PRECACHE_URLS = [
   "contacts.html",
   "privacy.html",
   "404.html",
+  "manifest.json",
+  "apple-touch-icon.png",
+  "assets/icons/icon-192.png",
+  "assets/icons/icon-512.png",
   "css/style.css",
   "css/pill-nav.css",
   "css/orbit-images.css",
@@ -56,8 +60,10 @@ self.addEventListener("fetch", (event) => {
     event.respondWith(
       fetch(request)
         .then((response) => {
-          const copy = response.clone();
-          caches.open(CACHE_NAME).then((cache) => cache.put(request, copy));
+          if (response.ok) {
+            const copy = response.clone();
+            event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.put(request, copy)));
+          }
           return response;
         })
         .catch(() => caches.match(request).then((cached) => cached || caches.match("404.html")))
@@ -73,7 +79,7 @@ self.addEventListener("fetch", (event) => {
         .then((response) => {
           if (response && response.status === 200) {
             const copy = response.clone();
-            caches.open(CACHE_NAME).then((cache) => cache.put(request, copy));
+            event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.put(request, copy)));
           }
           return response;
         })

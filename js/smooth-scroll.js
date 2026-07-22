@@ -5,9 +5,10 @@
   if (typeof Lenis === "undefined") return;
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-  // Отступ под шапку
+  // Отступ из CSS
+  const offset = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--scroll-offset")) || 104;
   const lenis = new Lenis({
-    anchors: { offset: 104 },
+    anchors: { offset },
   });
 
   if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {

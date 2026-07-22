@@ -5,6 +5,7 @@
   if (typeof gsap === "undefined") return;
 
   const ease = "power3.out";
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   function currentPage() {
     return location.pathname.split("/").pop() || "index.html";
@@ -21,6 +22,7 @@
   function layoutHoverCircles(nav) {
     const pills = nav.querySelectorAll("[data-pill]");
     const timelines = new Map();
+    if (prefersReducedMotion) return timelines;
 
     pills.forEach((pill) => {
       const circle = pill.querySelector(".hover-circle");
@@ -91,7 +93,7 @@
 
     const logo = nav.querySelector("[data-pill-logo]");
     const logoImg = nav.querySelector("[data-pill-logo-img]");
-    if (logo && logoImg) {
+    if (logo && logoImg && !prefersReducedMotion) {
       let logoTween;
       logo.addEventListener("pointerenter", () => {
         logoTween?.kill();
@@ -101,6 +103,11 @@
     }
 
     const items = nav.querySelector("[data-pill-items]");
+    if (prefersReducedMotion) {
+      if (items) gsap.set(items, { width: "auto" });
+      if (logoImg) gsap.set(logoImg, { scale: 1 });
+      return;
+    }
     if (items) {
       gsap.set(items, { width: 0, overflow: "hidden" });
       gsap.to(items, { width: "auto", duration: 0.6, ease, delay: 0.1 });
@@ -119,47 +126,49 @@
     gsap.set(menu, { visibility: "hidden", opacity: 0, y: 10 });
     let isOpen = false;
 
+    const setLines = (open, animate) => {
+      const lines = hamburger.querySelectorAll(".hamburger-line");
+      const targets = [
+        { rotation: open ? 45 : 0, y: open ? 3 : 0 },
+        { rotation: open ? -45 : 0, y: open ? -3 : 0 },
+      ];
+      lines.forEach((line, i) => {
+        if (animate) gsap.to(line, { ...targets[i], duration: 0.3, ease });
+        else gsap.set(line, targets[i]);
+      });
+    };
+
+    const openMenu = (animate) => {
+      gsap.set(menu, { visibility: "visible" });
+      if (animate) {
+        gsap.fromTo(menu, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.3, ease, transformOrigin: "top center" });
+      } else {
+        gsap.set(menu, { opacity: 1, y: 0 });
+      }
+    };
+
+    const closeMenu = (animate) => {
+      if (animate) {
+        gsap.to(menu, { opacity: 0, y: 10, duration: 0.2, ease, onComplete: () => gsap.set(menu, { visibility: "hidden" }) });
+      } else {
+        gsap.set(menu, { opacity: 0, y: 10, visibility: "hidden" });
+      }
+    };
+
     hamburger.addEventListener("click", () => {
       isOpen = !isOpen;
       hamburger.setAttribute("aria-expanded", String(isOpen));
-
-      const lines = hamburger.querySelectorAll(".hamburger-line");
-      if (isOpen) {
-        gsap.to(lines[0], { rotation: 45, y: 3, duration: 0.3, ease });
-        gsap.to(lines[1], { rotation: -45, y: -3, duration: 0.3, ease });
-        gsap.set(menu, { visibility: "visible" });
-        gsap.fromTo(
-          menu,
-          { opacity: 0, y: 10 },
-          { opacity: 1, y: 0, duration: 0.3, ease, transformOrigin: "top center" }
-        );
-      } else {
-        gsap.to(lines[0], { rotation: 0, y: 0, duration: 0.3, ease });
-        gsap.to(lines[1], { rotation: 0, y: 0, duration: 0.3, ease });
-        gsap.to(menu, {
-          opacity: 0,
-          y: 10,
-          duration: 0.2,
-          ease,
-          onComplete: () => gsap.set(menu, { visibility: "hidden" }),
-        });
-      }
+      setLines(isOpen, !prefersReducedMotion);
+      if (isOpen) openMenu(!prefersReducedMotion);
+      else closeMenu(!prefersReducedMotion);
     });
 
     menu.querySelectorAll("[data-pill-mobile-link]").forEach((link) => {
       link.addEventListener("click", () => {
         isOpen = false;
         hamburger.setAttribute("aria-expanded", "false");
-        const lines = hamburger.querySelectorAll(".hamburger-line");
-        gsap.to(lines[0], { rotation: 0, y: 0, duration: 0.2, ease });
-        gsap.to(lines[1], { rotation: 0, y: 0, duration: 0.2, ease });
-        gsap.to(menu, {
-          opacity: 0,
-          y: 10,
-          duration: 0.2,
-          ease,
-          onComplete: () => gsap.set(menu, { visibility: "hidden" }),
-        });
+        setLines(false, !prefersReducedMotion);
+        closeMenu(!prefersReducedMotion);
       });
     });
   }

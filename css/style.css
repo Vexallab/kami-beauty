@@ -21,6 +21,9 @@
 
   --container: 1180px;
   --nail-radius: 50% 50% 42% 42% / 68% 68% 22% 22%;
+
+  --header-h: 84px;
+  --scroll-offset: 104px;
 }
 
 * {
@@ -29,8 +32,7 @@
 
 html {
   scroll-behavior: smooth;
-  /* Отступ под шапку */
-  scroll-padding-top: 104px;
+  scroll-padding-top: var(--scroll-offset);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -298,7 +300,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 84px;
+  height: var(--header-h);
 }
 
 .logo {
@@ -966,8 +968,8 @@ button {
 }
 
 .social-row a {
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   border: 1px solid var(--line);
   display: flex;

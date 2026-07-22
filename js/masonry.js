@@ -68,6 +68,7 @@
 
     let hasMounted = false;
     let activeEntries = entries;
+    let pendingEntries = null;
 
     entries.forEach((entry) => {
       const el = entry.el;
@@ -165,7 +166,7 @@
       )
     ).then(() => {
       whenVisible(container, () => {
-        relayout(activeEntries, true);
+        relayout(pendingEntries || activeEntries, true);
         hasMounted = true;
       });
     });
@@ -183,25 +184,31 @@
 
     return {
       setActive(list) {
-        if (!hasMounted) return;
+        if (!hasMounted) {
+          pendingEntries = list;
+          return;
+        }
         relayout(list, false);
       },
     };
   }
 
   function buildEntries(container, selector) {
-    return Array.from(container.querySelectorAll(selector)).map((el, i) => {
-      const img = el.tagName === "IMG" ? el : el.querySelector("img");
-      const w = parseFloat(img.getAttribute("width")) || 1;
-      const h = parseFloat(img.getAttribute("height")) || 1;
-      return {
-        id: String(i),
-        el,
-        imgEl: img,
-        aspect: h / w,
-        category: el.getAttribute("data-portfolio-item") || null,
-      };
-    });
+    return Array.from(container.querySelectorAll(selector))
+      .map((el, i) => {
+        const img = el.tagName === "IMG" ? el : el.querySelector("img");
+        if (!img) return null;
+        const w = parseFloat(img.getAttribute("width")) || 1;
+        const h = parseFloat(img.getAttribute("height")) || 1;
+        return {
+          id: String(i),
+          el,
+          imgEl: img,
+          aspect: h / w,
+          category: el.getAttribute("data-portfolio-item") || null,
+        };
+      })
+      .filter(Boolean);
   }
 
   function initStudioGallery() {
