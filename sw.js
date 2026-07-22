@@ -1,6 +1,6 @@
 // Service Worker сайта
 
-const CACHE_NAME = "kami-beauty-v5";
+const CACHE_NAME = "kami-beauty-v6";
 
 const PRECACHE_URLS = [
   "index.html",
