@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kami Beauty — студия маникюра, педикюра, бровей и ресниц в Москве</title>
+<meta name="description" content="Kami Beauty — студия маникюра, педикюра, дизайна ногтей, бровей и ресниц в Раменках, Москва. Гель-лак, наращивание, ламинирование. Прайс-лист, портфолио и отзывы.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23f6efe6'/%3E%3Cpath d='M16 5c5 0 7 5 7 10s-3 10-7 11c-4-1-7-6-7-11s2-10 7-10z' fill='%237c1f2e'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<style>
+:root{--ivory:#f6efe6;--ivory-deep:#efe4d6;--card:#fbf7f1;--ink:#2a1b16;--ink-soft:#5c4a41;--wine:#7c1f2e;--wine-deep:#591420;--wine-bright:#a3283b;--gold:#c79a5b;--gold-soft:#e3cda2;--blush:#e8c9c3;--line:rgba(42,27,22,.13);--shadow:rgba(42,20,20,.18);--font-display:"Playfair Display",Georgia,serif;--font-body:"Manrope","Segoe UI",sans-serif;--font-mono:"IBM Plex Mono",Consolas,monospace;--container:1180px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:104px}
+body{margin:0;background:var(--ivory);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,canvas{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4{font-family:var(--font-display);font-weight:600;margin:0;color:var(--ink);letter-spacing:.01em}
+.wrap{max-width:var(--container);margin:0 auto;padding:0 clamp(20px,5vw,48px)}
+.site-header{position:sticky;top:0;z-index:100;background:rgba(246,239,230,.86);backdrop-filter:blur(10px);border-bottom:1px solid transparent}
+.site-header .wrap{display:flex;align-items:center;justify-content:space-between;height:84px}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--wine)}
+.reveal{opacity:0}
+.hero{position:relative;padding:clamp(48px,8vw,88px) 0 clamp(40px,6vw,64px);overflow:hidden}
+.hero-copy h1{font-size:clamp(40px,6vw,68px);line-height:1.04}
+.hero-copy h1 em{font-style:normal;color:var(--wine)}
+.hero-copy p{margin-top:22px;font-size:18px}
+.page-intro{padding:clamp(56px,9vw,96px) 0 clamp(24px,4vw,40px)}
+.page-intro h1{font-size:clamp(36px,5.5vw,58px);max-width:16ch}
+.page-intro p{margin-top:20px;font-size:17px;color:var(--ink-soft);max-width:56ch}
+.breadcrumb{font-family:var(--font-mono);font-size:12px;color:var(--ink-soft);letter-spacing:.06em;margin-bottom:22px}
+.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 30px;border-radius:999px;font-size:14px;font-weight:700;letter-spacing:.03em;cursor:pointer;border:1px solid transparent;white-space:nowrap}
+.btn--primary{background:var(--wine);color:var(--ivory)}
+.btn--ghost{background:transparent;border-color:var(--ink);color:var(--ink)}
+</style>
+<link rel="preload" href="https://fonts.gstatic.com/s/playfairdisplay/v40/nuFiD-vYSZviVYUb_rj3ij__anPXDTjYgFE_.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://fonts.gstatic.com/s/manrope/v20/xn7gYHE41ni1AdIRggOxSuXd.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://fonts.gstatic.com/s/ibmplexmono/v20/-F6qfjptAgt5VM-kVkqdyU8n3twJwlRFgtIU.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="css/style.css"></noscript>
+<link rel="stylesheet" href="css/pill-nav.css">
+<link rel="stylesheet" href="css/vendor/lenis.css">
+<link rel="stylesheet" href="css/scroll-reveal.css">
+<link rel="stylesheet" href="css/orbit-images.css">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap"></noscript>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NailSalon",
+  "name": "Kami Beauty",
+  "image": "assets/works/19.webp",
+  "url": "index.html",
+  "telephone": "+79651031809",
+  "email": "iprokhorov08@gmail.com",
+  "priceRange": "₽₽",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Мичуринский просп., 39",
+    "addressLocality": "Москва",
+    "addressCountry": "RU"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 55.69179,
+    "longitude": 37.503021
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+    "opens": "11:00",
+    "closes": "21:00"
+  },
+  "sameAs": ["https://yandex.ru/maps/org/224902682477/reviews"],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "bestRating": "5",
+    "ratingCount": "64",
+    "reviewCount": "50"
+  }
+}
+</script>
+</head>
+<body>
+
+<header class="site-header" data-site-header>
+  <div class="wrap">
+    <div class="pill-nav-container">
+      <nav class="pill-nav" aria-label="Основная навигация">
+        <a class="pill-logo" href="index.html" aria-label="Kami Beauty — на главную" data-pill-logo>
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23f6efe6'/%3E%3Cpath d='M16 5c5 0 7 5 7 10s-3 10-7 11c-4-1-7-6-7-11s2-10 7-10z' fill='%237c1f2e'/%3E%3C/svg%3E" alt="Kami Beauty" data-pill-logo-img>
+        </a>
+        <span class="pill-nav-wordmark">KAMI <em>BEAUTY</em></span>
+        <div class="pill-nav-items desktop-only" data-pill-items>
+          <ul class="pill-list" role="menubar">
+            <li role="none">
+              <a role="menuitem" href="index.html" class="pill" data-pill>
+                <span class="hover-circle" aria-hidden="true"></span>
+                <span class="label-stack"><span class="pill-label">Главная</span><span class="pill-label-hover" aria-hidden="true">Главная</span></span>
+              </a>
+            </li>
+            <li role="none">
+              <a role="menuitem" href="prices.html" class="pill" data-pill>
+                <span class="hover-circle" aria-hidden="true"></span>
+                <span class="label-stack"><span class="pill-label">Услуги и цены</span><span class="pill-label-hover" aria-hidden="true">Услуги и цены</span></span>
+              </a>
+            </li>
+            <li role="none">
+              <a role="menuitem" href="portfolio.html" class="pill" data-pill>
+                <span class="hover-circle" aria-hidden="true"></span>
+                <span class="label-stack"><span class="pill-label">Портфолио</span><span class="pill-label-hover" aria-hidden="true">Портфолио</span></span>
+              </a>
+            </li>
+            <li role="none">
+              <a role="menuitem" href="reviews.html" class="pill" data-pill>
+                <span class="hover-circle" aria-hidden="true"></span>
+                <span class="label-stack"><span class="pill-label">Отзывы</span><span class="pill-label-hover" aria-hidden="true">Отзывы</span></span>
+              </a>
+            </li>
+            <li role="none">
+              <a role="menuitem" href="contacts.html" class="pill" data-pill>
+                <span class="hover-circle" aria-hidden="true"></span>
+                <span class="label-stack"><span class="pill-label">Контакты</span><span class="pill-label-hover" aria-hidden="true">Контакты</span></span>
+              </a>
+            </li>
+            <li role="none">
+              <a role="menuitem" href="contacts.html#booking" class="pill" data-pill>
+                <span class="hover-circle" aria-hidden="true"></span>
+                <span class="label-stack"><span class="pill-label">Записаться</span><span class="pill-label-hover" aria-hidden="true">Записаться</span></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <button class="mobile-menu-button mobile-only" aria-label="Открыть меню" aria-expanded="false" data-pill-hamburger>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </nav>
+      <div class="mobile-menu-popover mobile-only" data-pill-mobile-menu>
+        <ul class="mobile-menu-list">
+          <li><a class="mobile-menu-link" href="index.html" data-pill-mobile-link>Главная</a></li>
+          <li><a class="mobile-menu-link" href="prices.html" data-pill-mobile-link>Услуги и цены</a></li>
+          <li><a class="mobile-menu-link" href="portfolio.html" data-pill-mobile-link>Портфолио</a></li>
+          <li><a class="mobile-menu-link" href="reviews.html" data-pill-mobile-link>Отзывы</a></li>
+          <li><a class="mobile-menu-link" href="contacts.html" data-pill-mobile-link>Контакты</a></li>
+          <li><a class="mobile-menu-link" href="contacts.html#booking" data-pill-mobile-link>Записаться</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- Хиро -->
+  <section class="hero">
+    <div class="blobs">
+      <div class="blob blob--blush" style="width:220px;height:300px;top:-60px;left:-80px;animation-delay:-4s;"></div>
+      <div class="blob blob--gold" style="width:120px;height:170px;bottom:10%;left:6%;animation-delay:-11s;"></div>
+      <div class="blob blob--wine" style="width:80px;height:115px;top:8%;right:-10px;animation-delay:-7s;"></div>
+      <div class="blob blob--gold" style="width:60px;height:85px;bottom:-20px;left:34%;animation-delay:-16s;"></div>
+      <div class="blob blob--blush" style="width:150px;height:210px;bottom:-50px;right:10%;animation-delay:-2s;"></div>
+      <div class="blob blob--wine" style="width:50px;height:72px;top:40%;left:1%;animation-delay:-19s;"></div>
+      <div class="blob blob--gold" style="width:95px;height:135px;top:2%;right:22%;animation-delay:-9s;"></div>
+    </div>
+    <div class="wrap">
+      <div class="hero-copy">
+        <span class="eyebrow">Студия маникюра · Москва</span>
+        <h1>Глянец, который держится <em>дольше</em> комплиментов</h1>
+        <p>Kami Beauty — студия маникюра, педикюра и дизайна ногтей в Раменках, где каждый ноготь доводят до блеска вручную. Также оформляем брови и ресницы: стерильные инструменты, премиальные материалы и мастера с вниманием к деталям.</p>
+        <div class="hero-actions">
+          <a href="contacts.html#booking" class="btn btn--primary">Записаться на маникюр</a>
+          <a href="portfolio.html" class="btn btn--ghost">Смотреть портфолио</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong>4.9 ★</strong><span>средняя оценка</span></div>
+          <div><strong>64</strong><span>оценки на Яндекс Картах</span></div>
+          <div><strong>50</strong><span>отзывов клиенток</span></div>
+        </div>
+      </div>
+      <div class="hero-stage">
+        <div class="orbit-container" data-orbit-images data-shape="ellipse" data-base-width="560" data-radius-x="230" data-radius-y="130" data-rotation="-8" data-duration="34" data-item-size="92" data-show-path="true" data-path-color="rgba(199, 154, 91, 0.45)" data-path-width="1.5" aria-hidden="true">
+          <video class="orbit-source" data-src="assets/works/orbit-hero-loop.mp4" poster="assets/works/orbit-hero-loop-poster.webp" preload="none" loop muted playsinline></video>
+          <video class="orbit-source" data-src="assets/works/orbit-nail-art.mp4" poster="assets/works/orbit-nail-art-poster.webp" preload="none" loop muted playsinline></video>
+          <video class="orbit-source" data-src="assets/works/orbit-uhd-1.mp4" poster="assets/works/orbit-uhd-1-poster.webp" preload="none" loop muted playsinline></video>
+          <video class="orbit-source" data-src="assets/works/orbit-uhd-2.mp4" poster="assets/works/orbit-uhd-2-poster.webp" preload="none" loop muted playsinline></video>
+          <video class="orbit-source" data-src="assets/works/orbit-salon.mp4" poster="assets/works/orbit-salon-poster.webp" preload="none" loop muted playsinline></video>
+          <video class="orbit-source" data-src="assets/works/orbit-manicure-tutorial.mp4" poster="assets/works/orbit-manicure-tutorial-poster.webp" preload="none" loop muted playsinline></video>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Гель-лак</span><span>Наращивание</span><span>Дизайн ногтей</span><span>Педикюр</span><span>SPA-уход</span><span>Парафинотерапия</span><span>Аппаратный маникюр</span>
+      <span>Гель-лак</span><span>Наращивание</span><span>Дизайн ногтей</span><span>Педикюр</span><span>SPA-уход</span><span>Парафинотерапия</span><span>Аппаратный маникюр</span>
+    </div>
+  </div>
+
+  <!-- Статистика -->
+  <section class="section section--tight">
+    <div class="wrap">
+      <div class="trust-stat reveal">
+        <span class="eyebrow">Нам доверяют</span>
+        <div class="trust-stat-number"><span data-countup data-to="1000" data-duration="2.2" data-separator=" ">0</span>+</div>
+        <p>довольных клиентов выбрали Kami Beauty для маникюра, педикюра, бровей и ресниц</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Услуги -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Услуги</span>
+        <h2>Всё для рук и ног в одной студии</h2>
+        <p>От базового ухода до сложного дизайна — полный список с ценами смотрите в прайс-листе.</p>
+      </div>
+      <div class="grid grid--3 reveal-stagger">
+        <a href="prices.html" class="service-card reveal" style="--i:0">
+          <span class="nail-chip nail--wine"></span>
+          <h3>Маникюр</h3>
+          <p>Классический, аппаратный и комбинированный уход с покрытием гель-лак.</p>
+          <span class="price-from">от 1 800 ₽</span>
+        </a>
+        <a href="prices.html" class="service-card reveal" style="--i:1">
+          <span class="nail-chip nail--sand"></span>
+          <h3>Наращивание</h3>
+          <p>Гель и типсы, любая форма и длина — от натуральных миндалей до острых стилетов.</p>
+          <span class="price-from">от 3 200 ₽</span>
+        </a>
+        <a href="prices.html" class="service-card reveal" style="--i:2">
+          <span class="nail-chip nail--gold"></span>
+          <h3>Дизайн ногтей</h3>
+          <p>Френч, втирка, роспись, стразы и авторские техники под настроение.</p>
+          <span class="price-from">от 250 ₽</span>
+        </a>
+        <a href="prices.html" class="service-card reveal" style="--i:3">
+          <span class="nail-chip nail--blush"></span>
+          <h3>Педикюр</h3>
+          <p>Классический и аппаратный педикюр с покрытием и уходом за стопой.</p>
+          <span class="price-from">от 2 500 ₽</span>
+        </a>
+        <a href="prices.html" class="service-card reveal" style="--i:4">
+          <span class="nail-chip nail--cream"></span>
+          <h3>SPA-уход</h3>
+          <p>Парафинотерапия, массаж рук и увлажняющие маски для кожи и кутикулы.</p>
+          <span class="price-from">от 800 ₽</span>
+        </a>
+        <a href="prices.html" class="service-card reveal" style="--i:5">
+          <span class="nail-chip nail--espresso"></span>
+          <h3>Брови и ресницы</h3>
+          <p>Ламинирование бровей и ресниц, классическое и объёмное наращивание.</p>
+          <span class="price-from">Уточнить цену →</span>
+        </a>
+        <a href="contacts.html#booking" class="service-card reveal" style="--i:6">
+          <span class="nail-chip nail--gold"></span>
+          <h3>Подбор мастера</h3>
+          <p>Не знаете, с чего начать? Расскажем, кто из мастеров подойдёт под ваш запрос.</p>
+          <span class="price-from">Написать нам →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Почему мы -->
+  <section class="section section--deep" style="position:relative; overflow:hidden;">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Почему Kami Beauty</span>
+        <h2>Детали, которые обычно не видно</h2>
+        <p>Мы построили студию вокруг вещей, на которые редко обращают внимание — пока не столкнутся с их отсутствием.</p>
+      </div>
+      <div class="grid grid--3">
+        <div class="reveal" style="--i:0">
+          <span class="nail-chip nail--wine" style="width:26px;height:36px;display:inline-block;margin-bottom:18px;"></span>
+          <h3 style="font-size:19px;margin-bottom:10px;color:var(--ivory);">Стерильность</h3>
+          <p style="color:rgba(246,239,230,.72);font-size:15px;">Одноразовые пилки и бафы, инструменты после автоклава в крафт-пакетах — вскрываем при вас.</p>
+        </div>
+        <div class="reveal" style="--i:1">
+          <span class="nail-chip nail--gold" style="width:26px;height:36px;display:inline-block;margin-bottom:18px;"></span>
+          <h3 style="font-size:19px;margin-bottom:10px;color:var(--ivory);">Опытные мастера</h3>
+          <p style="color:rgba(246,239,230,.72);font-size:15px;">Стаж от 3 лет, регулярная аттестация и обучение новым техникам дизайна.</p>
+        </div>
+        <div class="reveal" style="--i:2">
+          <span class="nail-chip nail--blush" style="width:26px;height:36px;display:inline-block;margin-bottom:18px;"></span>
+          <h3 style="font-size:19px;margin-bottom:10px;color:var(--ivory);">Премиальные материалы</h3>
+          <p style="color:rgba(246,239,230,.72);font-size:15px;">Профессиональные гель-лаки и базы европейских марок — держатся до 3–4 недель без сколов.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Манифест -->
+  <section class="section section--tight">
+    <div class="wrap">
+      <div class="scroll-reveal" data-base-opacity="0.15" data-base-rotation="4" data-blur-strength="4">
+        <p class="scroll-reveal-text">Мы верим, что безупречный маникюр — это не быстрая услуга, а маленький ритуал заботы о себе. Поэтому каждая деталь у нас продумана: от стерильности инструментов до оттенка, который идеально ляжет на вашу кожу.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Галерея студии -->
+  <section class="section section--tight">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Наша студия</span>
+        <h2>Место, куда хочется возвращаться</h2>
+        <p>Мичуринский просп., 39 — уютный кабинет с мраморным полом, мягким светом и атмосферой, в которой легко расслабиться.</p>
+      </div>
+      <div class="studio-gallery">
+        <a href="assets/works/19.webp" target="_blank" rel="noopener"><img src="assets/works/19.webp" alt="Рабочее место мастера в студии Kami Beauty" loading="lazy" width="976" height="1280"></a>
+        <a href="assets/works/20.webp" target="_blank" rel="noopener"><img src="assets/works/20.webp" alt="Интерьер студии Kami Beauty" loading="lazy" width="960" height="1280"></a>
+        <a href="assets/works/21.webp" target="_blank" rel="noopener"><img src="assets/works/21.webp" alt="Зона с зеркалом и креслом в студии" loading="lazy" width="960" height="1280"></a>
+        <a href="assets/works/22.webp" target="_blank" rel="noopener"><img src="assets/works/22.webp" alt="Интерьер студии Kami Beauty" loading="lazy" width="960" height="1280"></a>
+        <a href="assets/works/23.webp" target="_blank" rel="noopener"><img src="assets/works/23.webp" alt="Маникюрный стол в студии Kami Beauty" loading="lazy" width="1039" height="1280"></a>
+        <a href="assets/works/24.webp" target="_blank" rel="noopener"><img src="assets/works/24.webp" alt="Интерьер студии Kami Beauty" loading="lazy" width="960" height="1280"></a>
+        <a href="assets/works/25.webp" target="_blank" rel="noopener"><img src="assets/works/25.webp" alt="Рабочее место мастера маникюра" loading="lazy" width="960" height="1280"></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Портфолио -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Портфолио</span>
+        <h2>Немного наших работ</h2>
+        <p>Полную галерею с фильтром по типу работ смотрите в портфолио студии.</p>
+      </div>
+      <div class="portfolio-grid reveal-stagger">
+        <div class="portfolio-item is-visible reveal" style="--i:0">
+          <img src="assets/works/6.webp" alt="Леопардовый маникюр с красным френчем" loading="lazy" width="960" height="1280" style="object-position: 30% 55%;"><div class="sheen"></div>
+          <div class="caption"><strong>Леопард + красный френч</strong><span>Дизайн</span></div>
+        </div>
+        <div class="portfolio-item is-visible reveal" style="--i:1">
+          <img src="assets/works/11.webp" alt="Голубой френч с золотыми морскими наклейками" loading="lazy" width="1280" height="1280"><div class="sheen"></div>
+          <div class="caption"><strong>Морской дизайн с золотом</strong><span>Дизайн</span></div>
+        </div>
+        <div class="portfolio-item is-visible reveal" style="--i:2">
+          <img src="assets/works/3.webp" alt="Молочный педикюр" loading="lazy" width="720" height="720" style="object-position: 50% 70%;"><div class="sheen"></div>
+          <div class="caption"><strong>Молочный педикюр</strong><span>Педикюр</span></div>
+        </div>
+        <div class="portfolio-item is-visible reveal" style="--i:3">
+          <img src="assets/works/14.webp" alt="Ламинирование бровей и ресниц" loading="lazy" width="1223" height="1280"><div class="sheen"></div>
+          <div class="caption"><strong>Ламинирование бровей</strong><span>Брови и ресницы</span></div>
+        </div>
+      </div>
+      <div style="margin-top:36px;">
+        <a href="portfolio.html" class="btn btn--ghost">Смотреть все работы</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Отзывы -->
+  <section class="section" style="background:var(--ivory-deep);">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Отзывы</span>
+        <h2>Что говорят клиентки</h2>
+        <p>50 отзывов со средней оценкой 4.9 из 5 — читайте больше на странице отзывов.</p>
+      </div>
+      <div class="grid grid--3">
+        <div class="review-card reveal" style="--i:0">
+          <span class="stars">★★★★★</span>
+          <p class="quote">«Отличный салон! Хожу уже больше года. Качественный маникюр, быстро, большой выбор оттенков. Камила — очень приятная девушка. Салон небольшой, но всё очень чисто, аккуратно, уютно».</p>
+          <div class="review-foot"><span class="who">Лана В.</span><span class="service">Маникюр</span></div>
+        </div>
+        <div class="review-card reveal" style="--i:1">
+          <span class="stars">★★★★★</span>
+          <p class="quote">«Лучший мастер маникюра в районе Раменки — аккуратная работа, без сколов, стерильность. За красивыми ноготками только сюда!»</p>
+          <div class="review-foot"><span class="who">Юлианна С.</span><span class="service">Маникюр</span></div>
+        </div>
+        <div class="review-card reveal" style="--i:2">
+          <span class="stars">★★★★★</span>
+          <p class="quote">«Удобное расположение, спокойная атмосфера. Мастер Анжелика — очень аккуратно, быстро по времени. Большая палитра оттенков, особенно порадовали нюдовые тона».</p>
+          <div class="review-foot"><span class="who">Виктория Х.</span><span class="service">Маникюр</span></div>
+        </div>
+      </div>
+      <div style="margin-top:36px;">
+        <a href="reviews.html" class="btn btn--ghost">Все отзывы</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Призыв -->
+  <section class="section section--tight">
+    <div class="wrap">
+      <div class="cta-band reveal">
+        <div>
+          <h2>Готовы к глянцу?</h2>
+          <p>Запишитесь онлайн или по телефону — подберём мастера и удобное время.</p>
+        </div>
+        <div style="display:flex;gap:14px;flex-wrap:wrap;">
+          <a href="contacts.html#booking" class="btn btn--primary">Записаться</a>
+          <a href="tel:+79651031809" class="btn btn--ghost">Позвонить</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo">KAMI <em>BEAUTY</em></a>
+        <p class="footer-tag">Студия маникюра в районе Раменки, Москва. Аккуратность, стерильность и характер в каждом ногте.</p>
+        <div class="social-row">
+          <a href="#" aria-label="ВКонтакте"><img src="assets/works/vk.png" alt="" width="20" height="20" loading="lazy"></a>
+          <a href="#" aria-label="WhatsApp"><img src="assets/works/whatsap.png" alt="" width="20" height="20" loading="lazy"></a>
+          <a href="#" aria-label="Telegram"><img src="assets/works/telegram.png" alt="" width="20" height="20" loading="lazy"></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Навигация</h4>
+        <ul>
+          <li><a href="prices.html">Услуги и цены</a></li>
+          <li><a href="portfolio.html">Портфолио</a></li>
+          <li><a href="reviews.html">Отзывы</a></li>
+          <li><a href="contacts.html">Контакты</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Контакты</h4>
+        <ul>
+          <li><a href="tel:+79651031809">+7 (965) 103-18-09</a></li>
+          <li><a href="mailto:iprokhorov08@gmail.com">iprokhorov08@gmail.com</a></li>
+          <li>Москва, Мичуринский просп., 39</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Часы работы</h4>
+        <ul>
+          <li>Ежедневно</li>
+          <li>11:00–21:00</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year></span> Kami Beauty. Все права защищены.</span>
+      <span><a href="privacy.html">Политика конфиденциальности</a></span>
+      <span>Студия маникюра и педикюра в Москве.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/vendor/gsap.min.js"></script>
+<script src="js/vendor/ScrollTrigger.min.js"></script>
+<script src="js/vendor/lenis.min.js"></script>
+<script src="js/animations.js"></script>
+<script src="js/smooth-scroll.js"></script>
+<script src="js/pill-nav.js"></script>
+<script src="js/masonry.js"></script>
+<script src="js/scroll-reveal.js"></script>
+<script src="js/orbit-images.js"></script>
+</body>
+</html>

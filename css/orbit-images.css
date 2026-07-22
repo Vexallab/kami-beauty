@@ -1,0 +1,89 @@
+/* Орбита видео */
+
+.orbit-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.orbit-scaling-container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform-origin: center center;
+}
+
+.orbit-rotation-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-origin: center center;
+}
+
+.orbit-path-svg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.orbit-item {
+  position: absolute;
+  will-change: transform;
+  animation-name: orbit-travel;
+  animation-iteration-count: infinite;
+}
+
+.orbit-item.is-paused {
+  animation-play-state: paused;
+}
+
+@keyframes orbit-travel {
+  from {
+    offset-distance: 0%;
+  }
+  to {
+    offset-distance: 100%;
+  }
+}
+
+.orbit-video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 14px 30px -14px var(--shadow);
+  background: var(--ink);
+}
+
+.orbit-video--broken {
+  opacity: 0;
+}
+
+/* Запасной вариант */
+.orbit-container.no-offset-path .orbit-item {
+  position: relative;
+  display: inline-block;
+  animation: none;
+  margin: 6px;
+}
+
+.orbit-container.no-offset-path .orbit-rotation-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  transform: none !important;
+}
+
+.orbit-container.no-offset-path .orbit-scaling-container {
+  position: static;
+  transform: none !important;
+  width: 100% !important;
+  height: auto !important;
+}
+
+.orbit-container.no-offset-path .orbit-path-svg {
+  display: none;
+}
