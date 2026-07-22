@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kami-beauty.netlify.app/sitemap.xml
